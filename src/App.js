@@ -1,18 +1,18 @@
+import React, { useState } from 'react';
 import './App.css';
-
 import TodoList from './components/TodoList';
 
 function App() {
-  
-    const tasks = [
-      { id: 1, text: 'Task 1' },
-      { id: 2, text: 'Task 2' },
-      { id: 3, text: 'Task 3' },
-    ];
-  
-    const handleDelete = (taskId) => {
-    tasks.filter(task => task.id !== taskId);
-    };
+  const [tasks, setTasks] = useState([
+    { id: 1, text: 'Task 1' },
+    { id: 2, text: 'Task 2' },
+    { id: 3, text: 'Task 3' },
+  ]);
+
+  const handleDelete = (taskId) => {
+    const updatedTasks = tasks.filter(task => task.id !== taskId);
+    setTasks(updatedTasks); // Update the state with the filtered tasks
+  };
   
   return (
     
